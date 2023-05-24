@@ -1,0 +1,62 @@
+{% extends 'decharlas/main.html' %}
+
+{% block content %}
+
+{% if room_list %}
+<div class="container-fluid">
+   <div class="row">
+       <div class="col-xxl-6" id="room_links">
+
+           {% for room in room_list %}
+           <a href="/decharlas/{{room.name}}">{{room.name}}</a>
+           <br><br>
+
+           {% endfor %}
+       </div>
+
+       <div class="col-xxl-2">
+
+           {% for unread in salaNoLeida %}
+
+           {% if unread == '-1' %}
+           <p>Nueva Sala</p>
+           {% else %}
+           <p>{{unread}} mensajes no leídos </p>
+           {% endif %}
+
+           {% endfor %}
+
+       </div>
+
+       <div class="col-xxl-2">
+
+           {% for total in total_msg %}
+
+           <p>{{total}} mensajes</p>
+
+           {% endfor %}
+
+       </div>
+       <div class="col-xxl-1">
+           {% for vote in vote_list %}
+           <p>Me gusta: {{vote.likes}}</p>
+           {% endfor %}
+
+       </div>
+       <div class="col-xxl-1">
+           {% for vote in vote_list %}
+           <p> Dislike: {{vote.dislikes}}</p>
+           {% endfor %}
+       </div>
+   </div>
+</div>
+
+
+{% else %}
+<p>
+    No hay salas, crea una
+</p>
+
+{% endif %}
+
+{% endblock %}

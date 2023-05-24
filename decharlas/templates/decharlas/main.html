@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+    <title>DeCharlas</title>
+    <style type="text/css">
+
+        h2 {color: white; font-family: Verdana; font-size: large}
+
+        #main_header a:any-link {color:white; background-color: transparent; font-family: Verdana; font-size: xxx-large; font-weight: bolder; text-decoration: none}
+        #main_menu.bg-primary {
+            background-color: #4caf50;
+        }
+        .deCharlas {
+            color: white;
+            background-color:transparent;
+            text-align: center;
+        }
+        #menu_option a:any-link {color: white; font-family: Verdana; font-size: ; text-decoration: none; align-content: center}
+        #menu_option a:hover {color: black}
+        #menu_option a:active {color: yellow}
+
+        #main_body {color: black; align-content: start;  height: 100%; display: flex; flex-flow: column}
+        #main_content {height: 100%; font-family:'{{user_info.font_type}}'; font-size:'{{user_info.font_size}}';}
+
+        img {width: 40%; height: auto;}
+        .img2 {width:"50px";height: auto;}
+
+        .header-link {
+            color: transparent;
+            font-family: Verdana;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            text-align: center;
+        }
+        .dropdown-menu {
+            background-color: #4caf50;
+            border: none;
+            border-radius: 0;
+            padding: 0;
+        }
+
+        .dropdown-item {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #4caf50;
+            background-color: #4caf50;
+            border: none;
+            
+        }
+
+        .dropdown-item:hover, .dropdown-item:focus {
+            background-color: #e9ecef;
+            color: #4caf50;
+        }
+
+        .dropdown-divider {
+            margin: 0;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .btn {
+            background-color: #4caf50;
+        }
+
+        .border-success {
+            border: 2px solid lightgreen;
+        }
+
+
+        body {
+          background-image: url('../../static/fondo2.jpg');
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+
+    </style>
+    <link rel="icon"href="{% static 'favicon.ico' %}">
+</head>
+
+
+<body>
+    <div class="container-fluid" id="main_header">
+        <div class="deCharlas">
+            <header>
+                <a href="/decharlas/" class="header-link">DeCharlas</a>
+            </header>
+        </div>
+    </div>
+
+
+<div class="container-fluid" id="main_menu" style="background-color: #4caf50;">
+    <div class="row text-white border border-light" id="menu_option">
+      <div class="col-xxl-2 col-md-4 dropdown">
+        <h2 class="dropdown-toggle" id="menu-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          Menú
+        </h2>
+        <ul class="dropdown-menu" aria-labelledby="menu-toggle">
+          <li><a class="dropdown-item" href="/decharlas/">Página principal</a></li>
+          <li><a class="dropdown-item" href="/decharlas/config">Configuración</a></li>
+          <li><a class="dropdown-item" href="/decharlas/help">Ayuda</a></li>
+          <li><a class="dropdown-item" href="/admin/">Página del Admin</a></li>
+        </ul>
+      </div>
+      <div class="col-xxl-10 col-md-4 text-end">
+        <h2><a href="/decharlas/logout">CERRAR SESIÓN</a></h2>
+      </div>
+    </div>
+  </div>
+
+
+<div class="container-fluid" id="main_body">
+    <div class="row bg-white text-dark row-height">
+      <div class="col-xxl-3 col-md-12 border border-end border-primary" id="main_extra">
+        <div class="row g-8">
+          <div class="col-xxl-12">
+            {% csrf_token %}
+            <form method="post" action="">
+              {% csrf_token %}
+              <div class="mb-3">
+                <p> Nombre usuario: {{user_info.name}}</p>
+                <label for="roomname" class="form-label">Entrada a la sala:</label>
+                <input type="text" class="form-control" id="roomname" name="roomname" aria-describedby="room help" required="required">
+                <div id="room help" class="form-text">Introduce nombre</div>
+              </div>
+              <button type="submit" class="btn" name="action" value="nuevaSala">Acceder a la sala</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-xxl-9 col-md-12 h-100 border border-end border-primary" id="main_content" data-bs-spy="scroll">
+        {% block content %} {% endblock %}
+      </div>
+    </div>
+  </div>
+  
+
+<footer class="text-center" id="main_footer">
+    <div class="row bg-success bg-gradient text-white border-success">
+        <div class="col">
+            <p>| Usuarios totales: {{stats.users}} | Mensajes de Texto: {{stats.text}} | Imágenes: {{stats.img}} |</p>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+[
+  {
+    "author": "David Rodriguez",
+    "text": "This is a message",
+    "isimg": false,
+    "date": "2023-05-20:10:04:02"
+  },
+  {
+    "author": "Juan Perez",
+    "text": "This is another message",
+    "isimg": false,
+    "date": "2023-05-20:10:04:01"
+  },
+  {
+    "author": "Jesus Garcia",
+    "text": "https://gsyc.urjc.es/logo.gif",
+    "isimg": true,
+    "date": "2023-05-20:10:04:01"
+  }
+]

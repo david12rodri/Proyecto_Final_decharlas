@@ -1,0 +1,72 @@
+{% extends 'decharlas/main.html' %}
+{% load static %}
+
+{% block content %}
+
+<head>
+<br>
+<style type="text/css">
+body {
+    font-family: Arial, sans-serif;
+}
+  
+  p {
+    margin-bottom: 0.5rem;
+  }
+  
+  summary {
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  details > p {
+    margin-left: 1rem;
+  }
+  
+  details > p:first-child {
+    margin-top: 0.5rem;
+  }
+  
+  details > p:last-child {
+    margin-bottom: 0.5rem;
+  }
+
+  h2 {color: white; font-family: Verdana; font-size: large}
+
+
+img {width: 40%; height: auto;}	
+</style>	
+
+<br>
+<h1>Guia de ayuda sobre la página web "DeCharla"</h1>
+<br>
+<details>
+  <summary>¿Cómo introducir la contraseña?</summary>
+  <p>Todas las contraseñas de la forma "pass_X", siendo X un numero del 1 al 9 son contraseñas válidas.</p>
+</details><br>
+<details>
+  <summary>¿Cómo acceder a diferentes campos?</summary>
+  <p>En la página principal hay una barra de menú para acceder a diferentes campos: "página principal" para la página principal, "Configuracion" para cambiar nombre y tipo de letra, "Ayuda" para desplegar este archivo, "Página del admin" para la página del administrador, y "logout" para salir.</p>
+</details><br>
+<details>
+  <summary>¿Cómo acceder a una sala?</summary>
+  <p>En la página principal hay dos opciones para acceder a una sala: buscándola entre todas las páginas, o introduciendo su nombre.</p>
+</details><br>
+<details>
+  <summary>¿Cómo entrar en una sala?</summary>
+  <p>Para entrar en alguna sala, pulsa sobre el link de la sala o busca por su nombre en el buscador de la izquierda</p>
+</details><br>
+<details>
+	<summary>¿Cómo crear en una sala?</summary>
+	<p>A la izquierda de la página se puede introducir el nombre de una sala para acceder a ella, o para crearla si aún no existe. Esta opción está disponible en todas las ventanas.</p>
+</details><br>
+<details>
+  <summary>¿Cómo enviar mensajes en una sala?</summary>
+  <p>Dentro de cada una de las salas se pueden introducir nuevos mensajes utilizando el formulario arriba del todo. Además, hay una checkbox para indicar si el mensaje es texto (checkbox sin marcar) o es una URL a una imagen (checkbox marcada).</p>
+</details><br>
+<details>
+	<summary>¿En que consiste el botón "Like"?</summary>
+	<p>Todas las salas tendrán un botón de "Like" o "Dislike".</p>  
+</details><br>
+
+{% endblock %}
